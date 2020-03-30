@@ -23,7 +23,7 @@ public class Drawing {
         pic.show();
     }
     
-    public static void main(String[] args) {
+    public static void videoExample() {
         // Initialize the red, green, and blue channels
         int[][] r = new int[400][500];
         int[][] g = new int[400][500];
@@ -52,6 +52,55 @@ public class Drawing {
             b[index][index] = value;
             index++;
         }
+        showPic(r, g, b);
+    }
+    
+    /**
+     * 
+     * @param r 2D array of red components in each pixel
+     * @param g 2D array of green components in each pixel
+     * @param b 2D array of blue components in each pixel
+     * @param cx Center of the circle's x coordinate
+     * @param cy Center of the circle's y coordinate
+     * @param radius Radius of the circle
+     * 
+     * (x-cx)^2 + (y-cy)^2 <= radius^2
+     * 
+     */
+    public static void drawCircle(int[][] r, int[][] g, int[][] b,
+                                  double cx, double cy, double radius) {
+        // TODO: Write a system of loops that draws the appropriate
+        // circle in magenta
+        
+        // Loop through every pixel, and check if that pixel is within
+        // the circle
+        
+        // Loop through the rows first
+        for (int i = 0; i < r.length; i++) {
+            // For each row, loop each column
+            for (int j = 0; j < r[i].length; j++) {
+                double x = j;
+                double y = i;
+                double distSqr = Math.pow(x-cx, 2) + Math.pow(y-cy, 2);
+                // Check to see if it's in the circle
+                if (distSqr <= radius*radius) {
+                    // We're in the circle!
+                    r[i][j] = 0xFF;
+                    b[i][j] = 0xFF;
+                }
+            }
+        }
+        
+    }
+    
+    public static void main(String[] args) {
+        // Initialize the red, green, and blue channels
+        int[][] r = new int[400][500];
+        int[][] g = new int[400][500];
+        int[][] b = new int[400][500];
+        drawCircle(r, g, b, 300, 100, 50);
+        drawCircle(r, g, b, 100, 200, 20);
+        drawCircle(r, g, b, 300, 300, 100);
         showPic(r, g, b);
     }
 }

@@ -36,6 +36,7 @@ public class ASCIIArt {
     public static void main(String[] args) {
         Picture picture = new Picture("Examples/ursinus.png");
         double[][] image = getGrayscaleArray(picture);
+        System.out.println(image[10][4]);
         // TODO: Make ASCII art.  You should define at least one method
         // that takes in the image array, as well as the number of 
         // rows and columns in each block

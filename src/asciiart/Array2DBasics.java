@@ -16,7 +16,10 @@ public class Array2DBasics {
      * @param showCommas Whether or not to display the commas
      */
     public static void printArray(double[][] x, boolean showCommas) {
-        for (int i = 0; i < x.length; i++) {
+        // Loops through rows
+        for (int i = 0; i < x.length; i++) {    
+            // For each row, I loop through all of the elements of
+            // that row (all of the columns)
             for (int j = 0; j < x[i].length; j++) {
                 System.out.print(x[i][j]);
                 if (showCommas && j < x[i].length - 1) {
@@ -32,6 +35,7 @@ public class Array2DBasics {
     
     public static void main(String[] args) {
         double[][] x = new double[20][15];
+        
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 6; j++) {
                 x[i][j] = 1;

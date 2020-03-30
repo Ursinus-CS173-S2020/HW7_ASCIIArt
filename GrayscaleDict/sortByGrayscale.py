@@ -13,7 +13,7 @@ X = 0.2125*X[:, :, 0] + 0.7154*X[:, :, 1] + 0.0721*X[:, :, 2]
 grayscale = []
 chars = []
 b = 33
-plt.figure(figsize=(10, 10))
+plt.figure(figsize=(8, 8))
 for c in range(94):
     ch = chr(b)
     chars.append(ch)
